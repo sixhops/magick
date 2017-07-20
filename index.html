@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="magick">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MTG Lookup</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="magick.js"></script>
+
+  </head>
+  <body ng-controller="MagickController">
+
+    <div class="header">
+      <select ng-model="selectedSet" ng-change="changeSelectedSet()" ng-options="set.code as set.name group by set.type for set in availableSets">
+        <option value="">Select set...</option>
+      </select>
+    </div>
+
+    <div class="results">
+
+      <!-- Remember this configuration because its the only way to use ngRepeat with images -->
+      <div class="imgwrapper" ng-repeat="card in currentDeck">
+        <img class="cardimage" ng-src="{{card.imageUrl}}">
+      </div>
+
+    </div>
+
+  </body>
+</html>
