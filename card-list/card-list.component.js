@@ -3,11 +3,8 @@ angular.module('cardList')
     templateUrl: 'card-list/card-list.template.html',
     controller: ['$http', function($http) {
 
-      console.log("in the card-list ctrl");
-
       var self = this;
-      self.orderBy = 'name';
-      
+      self.orderProp = 'name';
 
       // Get set names to populate the select options box
       self.availableSets = [];
@@ -23,7 +20,6 @@ angular.module('cardList')
           // Exclude type: "promo"
           return s.type != "promo";
         });
-        console.log("in the card-list ctrl");
       });
       
       // On combo box change, get cards in selected set
@@ -34,7 +30,6 @@ angular.module('cardList')
         };
         $http(cardReq).then(function success(res) {
           self.currentDeck = res.data.cards;
-          console.log("in the card-list ctrl");
         });
       };
     }]

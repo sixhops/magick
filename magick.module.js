@@ -1,1 +1,1 @@
-angular.module('magickApp', ['cardList', 'ngRoute']);
+angular.module('magickApp', ['cardList', 'cardDetail', 'ngRoute']);

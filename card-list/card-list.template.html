@@ -10,11 +10,10 @@
       <option value="cmc">CMC</option>
     </select>
   </p>
-  
 </div>
 
 <div class='results'>
   <div class='imgwrapper' ng-repeat="card in $ctrl.currentDeck | orderBy:$ctrl.orderProp">
-    <img class='cardimage' ng-src="{{card.imageUrl}}">
+    <a href="#!/cards/{{card.id}}"><img class='cardimage' ng-src="{{card.imageUrl}}"></a>
   </div>
 </div>

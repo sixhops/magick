@@ -3,17 +3,14 @@ angular.
   config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
 
-      console.log("in the config");
-
-
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
         when('/', {
-          template: '<p><card-list></card-list></p>'
+          template: '<card-list></card-list>'
         }).
-        when('/:cardId', {
-          template: 'slash and card id'
+        when('/cards/:id', {
+          template: '<card-detail></card-detail>'
         }).
         otherwise('/');
     }
