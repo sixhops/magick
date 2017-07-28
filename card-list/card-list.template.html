@@ -1,0 +1,20 @@
+<div class="header">
+  <p>
+    <select ng-model="$ctrl.selectedSet" ng-change="$ctrl.changeSelectedSet()" ng-options="set.code as set.name group by set.type for set in $ctrl.availableSets">
+      <option value="">Select set...</option>
+    </select>
+
+    Sort by:
+    <select ng-model="$ctrl.orderProp">
+      <option value="name">Name</option>
+      <option value="cmc">CMC</option>
+    </select>
+  </p>
+  
+</div>
+
+<div class='results'>
+  <div class='imgwrapper' ng-repeat="card in $ctrl.currentDeck | orderBy:$ctrl.orderProp">
+    <img class='cardimage' ng-src="{{card.imageUrl}}">
+  </div>
+</div>

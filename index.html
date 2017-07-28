@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="magick">
+<html lang="en" ng-app="magickApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,26 +8,18 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="magick.module.js"></script>
+    <script src="magick.config.js"></script>
     <script src="magick.js"></script>
+    <script src="card-list/card-list.module.js"></script>
+    <script src="card-list/card-list.component.js"></script>
 
   </head>
-  <body ng-controller="MagickController">
+  <body>
 
-    <div class="header">
-      <select ng-model="selectedSet" ng-change="changeSelectedSet()" ng-options="set.code as set.name group by set.type for set in availableSets">
-        <option value="">Select set...</option>
-      </select>
-    </div>
-
-    <div class="results">
-
-      <!-- Remember this configuration because its the only way to use ngRepeat with images -->
-      <div class="imgwrapper" ng-repeat="card in currentDeck">
-        <img class="cardimage" ng-src="{{card.imageUrl}}">
-      </div>
-
-    </div>
+    <div ng-view></div>
 
   </body>
 </html>
