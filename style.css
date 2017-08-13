@@ -43,3 +43,30 @@ h2 {
   float: left;
   padding: 1.2em;
 }
+
+.mainpane {
+  width: 100%;
+  position: relative;
+}
+
+.listpane {
+  width: 65%;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  background-color: rgb(120,120,100);
+  padding: 1em;
+}
+
+.listpane ul {
+  text-align: left;
+}
+
+.detailpane {
+  text-align: center;
+  width: 34%;
+  margin: 0;
+  display: inline-block;
+  background-color: rgb(100,120,120);
+  padding: 1em;
+}

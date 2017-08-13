@@ -21,7 +21,14 @@
   </head>
   <body>
 
-    <div ng-view></div>
+  <div class="mainpane" ng-controller="MagickController as mc">
+    <div class="listpane">
+      <card-list card-id="mc.cardId" on-card-change="mc.cardId = $event.cardId"></card-list>
+    </div>
+    <div class="detailpane">
+      <card-detail card-id="mc.cardId"></card-detail>
+    </div>
+  </div>
 
   </body>
 </html>

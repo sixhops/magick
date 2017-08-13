@@ -11,6 +11,12 @@ angular.module('cardList')
       self.selectedSet = ""; // this should be the code, not the full name
       self.currentDeck = null;
 
+      self.setCardId = function(cardId) {
+        self.cardId = cardId;
+        console.log(self.cardId);
+        self.onCardChange({$event: {cardId: cardId}});
+      };
+
       var setReq = {
         url: 'https://api.magicthegathering.io/v1/sets',
         method: 'GET'
@@ -30,7 +36,12 @@ angular.module('cardList')
         };
         $http(cardReq).then(function success(res) {
           self.currentDeck = res.data.cards;
+          self.setCardId(res.data.cards[0].id);
         });
       };
-    }]
+    }],
+    bindings: {
+      cardId: '<',
+      onCardChange: '&'
+    }
   });
